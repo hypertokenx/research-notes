@@ -1,62 +1,82 @@
 # Research Notes
 
-A collection of research notes exploring AI systems, LLM reliability, information retrieval, and forecasting under uncertainty.
+A collection of research notes exploring AI systems, LLM reliability, retrieval, hallucinations, and forecasting under uncertainty.
 
-The purpose of this repository is to demonstrate **research synthesis**: combining information from multiple sources, distinguishing established findings from interpretation, identifying competing explanations, and extracting practical conclusions.
+The repository focuses on **research synthesis rather than simple summarization**: comparing evidence from multiple sources, distinguishing capability from reliability, identifying competing explanations, and drawing conclusions that remain appropriately qualified.
 
 ## Research Approach
 
-Each note generally follows this structure:
+Each note follows a general framework:
 
-1. **Define the problem** — Establish the key concept or question.
-2. **Examine evidence** — Draw on research papers, technical documentation, and other authoritative sources.
-3. **Compare perspectives** — Identify important distinctions, trade-offs, and alternative explanations.
-4. **Synthesize findings** — Connect individual findings into a broader conclusion.
-5. **Identify uncertainty** — Distinguish what is well established from what remains uncertain or context-dependent.
-6. **Apply the findings** — Consider what the research implies for practical AI systems, evaluation, or decision-making.
+1. **Define the question** — Identify the specific problem being investigated.
+2. **Establish the current state of evidence** — Prioritize recent research, technical reports, primary sources, and authoritative institutions.
+3. **Separate capability from reliability** — A system performing well on a benchmark does not automatically establish robustness in other settings.
+4. **Compare evidence** — Look for agreement, disagreement, trade-offs, and changes over time.
+5. **Synthesize** — Draw a broader conclusion from the evidence rather than simply summarizing individual sources.
+6. **Identify uncertainty** — Distinguish established findings from plausible interpretations and unresolved questions.
+7. **Consider practical implications** — Ask what the findings mean for evaluation, deployment, or decision-making.
 
-The goal is not to produce exhaustive literature reviews. Instead, each note aims to turn a body of information into a concise, structured analysis while preserving important nuance.
+Because AI capabilities are changing rapidly, these notes are intended to be **living documents** rather than permanent statements of fact.
 
 ## Contents
 
-* `llm-limitations.md` — Major limitations of large language models and why capability does not necessarily imply reliability
-* `ai-evaluation.md` — How AI systems can be evaluated beyond simple benchmark accuracy
-* `rag-overview.md` — How retrieval-augmented generation works, what problems it addresses, and what new failure modes it introduces
-* `llm-hallucinations.md` — Why fluent language can be unreliable and how factuality and faithfulness differ
-* `forecasting-and-model-uncertainty.md` — How initial conditions, model limitations, and probabilistic uncertainty affect forecasting
+- `llm-limitations.md` — How rapid frontier-model improvements have changed the traditional picture of LLM limitations
+- `ai-evaluation.md` — Why evaluating increasingly capable AI systems requires more than benchmark scores
+- `rag-overview.md` — What retrieval-augmented generation solves, what it introduces, and how it should be evaluated
+- `llm-hallucinations.md` — How factual reliability has improved while unsupported generation remains a persistent systems problem
+- `forecasting-and-model-uncertainty.md` — What weather forecasting teaches us about prediction, uncertainty, calibration, and model error
+
+## A Common Theme
+
+The five notes examine different versions of the same underlying problem:
+
+> **How should we determine whether a system's output deserves our confidence?**
+
+For LLMs, the question appears as:
+
+- Can the model solve the task?
+- Does it generalize beyond familiar task distributions?
+- Does it know when it is uncertain?
+- Can its claims be independently verified?
+- Does adding tools or retrieval improve reliability?
+- How does performance change as tasks become longer and more complex?
+
+For forecasting, the equivalent question is:
+
+- How accurate is the prediction?
+- How well does the forecast represent uncertainty?
+- Is the forecast calibrated?
+- Does the model capture meaningful signal or merely reduce average error?
+- How should users make decisions from probabilistic predictions?
+
+The broader theme is therefore the relationship between:
+
+**Capability → Evidence → Uncertainty → Reliability → Decision**
 
 ## Source Standards
 
-Sources are selected primarily for their relevance, methodological quality, and authority.
+Sources are selected using the following hierarchy where practical:
 
-Where possible, the notes prioritize:
+1. Primary research papers and technical reports
+2. Official model/system cards and evaluation reports
+3. Government and standards organizations
+4. Research institutions and operational forecasting centers
+5. Peer-reviewed surveys and literature reviews
 
-* Peer-reviewed research and academic papers
-* Government and standards organizations
-* Primary technical documentation
-* Research institutions
-* Surveys that synthesize established literature
-
-Sources are used to support factual claims, while conclusions and interpretations are explicitly presented as synthesis rather than as direct quotations from individual sources.
+Vendor-reported benchmark results are treated as useful evidence of measured capability, but not as independent proof of general capability. Where possible, vendor claims are compared with independent evaluations.
 
 ## Scope and Limitations
 
-These notes are analytical summaries rather than formal systematic reviews. The selection of sources is therefore necessarily limited, and conclusions may change as research develops.
+These notes are analytical research summaries, not systematic literature reviews.
 
-The emphasis is on **clear reasoning, evidence quality, and useful synthesis**, rather than maximizing the number of references.
+The goal is to demonstrate the ability to:
 
-## Research Questions
+- identify relevant evidence
+- compare sources
+- recognize methodological limitations
+- distinguish observation from inference
+- synthesize findings into a defensible conclusion
 
-The notes are connected by a broader question:
+The notes intentionally avoid pretending that rapidly evolving research has produced final answers where it has not.
 
-> **How should we assess the reliability of systems that make predictions or generate information under uncertainty?**
-
-This question appears in different forms across the repository:
-
-* How reliable are LLM capabilities outside their demonstrated conditions?
-* How should AI systems be evaluated?
-* How does external retrieval affect reliability?
-* Why can fluent AI outputs be factually unsupported?
-* How should uncertainty be represented and interpreted in forecasting?
-
-Together, these topics explore the relationship between **capability, evidence, uncertainty, and trust**.
+**Research status:** Updated August 2026.

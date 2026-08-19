@@ -28,20 +28,20 @@ The original RAG formulation established the core idea of combining a language m
 
 Research increasingly explored:
 
-- improved retrieval;
-- reranking;
-- hybrid retrieval;
-- query transformation;
-- graph-based retrieval;
-- modular architectures;
-- long-context interactions.
+- improved retrieval
+- reranking
+- hybrid retrieval
+- query transformation
+- graph-based retrieval
+- modular architectures
+- long-context interactions
 
 ### 2025: Evaluation becomes a central research problem
 
 Recent surveys emphasize that evaluating RAG is unusually difficult because it combines two systems:
 
-1. information retrieval;
-2. language generation.
+1. information retrieval
+2. language generation
 
 A system can therefore fail before generation even begins.
 
@@ -77,12 +77,12 @@ It redistributes it across a larger pipeline.
 
 A correct answer may exist in the knowledge base while the system still fails because:
 
-- the query is poorly formulated;
-- the relevant document is not retrieved;
-- the document is ranked too low;
-- chunking separates related information;
-- the retrieved context is incomplete;
-- irrelevant documents crowd out useful evidence.
+- the query is poorly formulated
+- the relevant document is not retrieved
+- the document is ranked too low
+- chunking separates related information
+- the retrieved context is incomplete
+- irrelevant documents crowd out useful evidence
 
 Therefore retrieval recall and relevance deserve separate evaluation.
 
@@ -104,11 +104,11 @@ The final answer did not.
 
 This demonstrates why RAG evaluation must distinguish:
 
-- retrieval quality;
-- evidence use;
-- answer correctness;
-- faithfulness;
-- citation correctness.
+- retrieval quality
+- evidence use
+- answer correctness
+- faithfulness
+- citation correctness
 
 ## 3. More Context Is Not Automatically Better
 
@@ -116,11 +116,11 @@ Long-context models make it easier to provide large quantities of retrieved info
 
 But more context can also introduce:
 
-- irrelevant material;
-- conflicting evidence;
-- redundancy;
-- increased computation;
-- additional opportunities for misinterpretation.
+- irrelevant material
+- conflicting evidence
+- redundancy
+- increased computation
+- additional opportunities for misinterpretation
 
 The goal is therefore not maximum retrieval.
 
@@ -132,11 +132,11 @@ Agentic RAG treats retrieval as a sequence of decisions rather than a fixed prep
 
 The system may decide:
 
-- what to search for;
-- whether the first result is sufficient;
-- whether another query is necessary;
-- which evidence should be prioritized;
-- when to stop retrieving.
+- what to search for
+- whether the first result is sufficient
+- whether another query is necessary
+- which evidence should be prioritized
+- when to stop retrieving
 
 This can improve complex tasks, but it also creates more possible failure points.
 
@@ -160,12 +160,12 @@ A strong system may use both.
 
 A retrieved document may be:
 
-- wrong;
-- outdated;
-- incomplete;
-- biased;
-- ambiguous;
-- irrelevant to the exact claim.
+- wrong
+- outdated
+- incomplete
+- biased
+- ambiguous
+- irrelevant to the exact claim
 
 Even a correct document can be misinterpreted.
 
@@ -209,11 +209,11 @@ A citation should be evaluated for whether the source actually entails the claim
 
 ### System performance
 
-- latency;
-- token usage;
-- retrieval cost;
-- scalability;
-- failure recovery.
+- latency
+- token usage
+- retrieval cost
+- scalability
+- failure recovery
 
 This decomposition makes failures diagnosable.
 
@@ -223,17 +223,17 @@ RAG and fine-tuning generally address different problems.
 
 RAG is especially useful for:
 
-- frequently changing information;
-- private documents;
-- large knowledge bases;
-- source-grounded answers.
+- frequently changing information
+- private documents
+- large knowledge bases
+- source-grounded answers
 
 Fine-tuning is often more useful for:
 
-- response behavior;
-- specialized formats;
-- consistent styles;
-- task-specific behavior.
+- response behavior
+- specialized formats
+- consistent styles
+- task-specific behavior
 
 A production system can combine both.
 

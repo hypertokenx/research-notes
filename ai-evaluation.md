@@ -16,12 +16,12 @@ Traditional AI evaluation often emphasized aggregate metrics such as accuracy, e
 
 These metrics remain useful. The problem is that a single number can conceal:
 
-- task difficulty;
-- variation across items;
-- uncertainty in the estimate;
-- distribution shift;
-- contamination;
-- differences between controlled evaluation and deployment.
+- task difficulty
+- variation across items
+- uncertainty in the estimate
+- distribution shift
+- contamination
+- differences between controlled evaluation and deployment
 
 As models approach high performance on established benchmarks, these issues become more consequential.
 
@@ -67,12 +67,12 @@ Another might perform extremely well on some items and poorly on a particular su
 
 Useful evaluation therefore examines more than the mean:
 
-- item difficulty;
-- response variability;
-- domain-specific performance;
-- uncertainty;
-- failure modes;
-- distributional coverage.
+- item difficulty
+- response variability
+- domain-specific performance
+- uncertainty
+- failure modes
+- distributional coverage
 
 ## 3. Uncertainty Is Part of the Result
 
@@ -92,12 +92,12 @@ A benchmark that was highly discriminative in one model generation may become le
 
 Other problems can arise:
 
-- contamination or memorization;
-- ambiguous questions;
-- unrepresentative task distributions;
-- artifacts that reward shortcuts;
-- weak reference answers;
-- scoring rules that do not capture meaningful quality.
+- contamination or memorization
+- ambiguous questions
+- unrepresentative task distributions
+- artifacts that reward shortcuts
+- weak reference answers
+- scoring rules that do not capture meaningful quality
 
 This produces a recursive evaluation problem:
 
@@ -109,13 +109,13 @@ A traditional benchmark might ask whether the model produced the correct answer.
 
 An agentic system may need to:
 
-1. interpret the goal;
-2. plan;
-3. select tools;
-4. execute actions;
-5. inspect intermediate results;
-6. recover from errors;
-7. complete the entire task.
+1. interpret the goal
+2. plan
+3. select tools
+4. execute actions
+5. inspect intermediate results
+6. recover from errors
+7. complete the entire task
 
 METR's task-horizon work measures a related property by estimating how task duration affects successful completion.
 
@@ -127,12 +127,12 @@ NIST's 2026 work on monitoring deployed AI systems emphasizes that deployment ca
 
 Real environments contain:
 
-- changing inputs;
-- changing users;
-- distribution shift;
-- unexpected interactions;
-- operational constraints;
-- human-AI feedback loops.
+- changing inputs
+- changing users
+- distribution shift
+- unexpected interactions
+- operational constraints
+- human-AI feedback loops
 
 This suggests an evaluation lifecycle:
 
@@ -148,11 +148,11 @@ But vendor results should be interpreted as evidence of what was measured under 
 
 Independent evaluations are useful for testing whether conclusions transfer across:
 
-- prompts;
-- harnesses;
-- task sets;
-- environments;
-- model configurations.
+- prompts
+- harnesses
+- task sets
+- environments
+- model configurations
 
 A rigorous synthesis should therefore distinguish:
 
@@ -168,11 +168,11 @@ When a metric becomes a target, optimizing the metric can diverge from optimizin
 
 Potential problems include:
 
-- training on benchmark-like examples;
-- evaluation-specific prompting;
-- exploiting benchmark artifacts;
-- optimizing for public leaderboard performance;
-- agents exploiting weaknesses in test environments.
+- training on benchmark-like examples
+- evaluation-specific prompting
+- exploiting benchmark artifacts
+- optimizing for public leaderboard performance
+- agents exploiting weaknesses in test environments
 
 This does not invalidate benchmarks.
 
@@ -184,34 +184,34 @@ Different systems require different evidence.
 
 ### Customer-support system
 
-- factuality;
-- policy compliance;
-- consistency;
-- escalation behavior.
+- factuality
+- policy compliance
+- consistency
+- escalation behavior
 
 ### Coding agent
 
-- task completion;
-- test passing;
-- regression rate;
-- tool use;
-- error recovery.
+- task completion
+- test passing
+- regression rate
+- tool use
+- error recovery
 
 ### Research assistant
 
-- source quality;
-- citation correctness;
-- evidence grounding;
-- factuality;
-- uncertainty communication.
+- source quality
+- citation correctness
+- evidence grounding
+- factuality
+- uncertainty communication
 
 ### Autonomous workflow
 
-- end-to-end success;
-- intervention rate;
-- failure recovery;
-- unsafe actions;
-- long-horizon reliability.
+- end-to-end success
+- intervention rate
+- failure recovery
+- unsafe actions
+- long-horizon reliability
 
 There is therefore no single universally sufficient "AI score."
 

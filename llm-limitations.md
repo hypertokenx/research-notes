@@ -1,78 +1,227 @@
-# LLM Limitations: What Current Evidence Suggests
+# LLM Limitations in 2026: Which Problems Remain?
 
-## Overview
+## The Question Has Changed
 
-Large language models have become substantially more capable, but their strengths can obscure important limitations. A useful way to understand these limitations is not to ask whether LLMs are "intelligent" or "unintelligent," but to examine where their performance is reliable, where it is fragile, and what conditions cause failures.
+Earlier discussions of large language models often focused on whether they could reason, code, follow instructions, or solve difficult problems at all.
 
-Recent research surveys consistently identify reasoning, generalization, hallucination, bias, security, and knowledge limitations as major areas of concern. A 2025 data-driven survey of more than 250,000 ACL and arXiv papers found that reasoning was the most studied limitation, followed by generalization, hallucination, bias, and security. [1]
+That framing has become increasingly inadequate.
 
-## 1. Reasoning Is Uneven
+Frontier models released during 2026 demonstrate substantial improvements across reasoning, coding, multimodal understanding, tool use, and long-horizon professional tasks. For example, Google's February 2026 evaluation of Gemini 3.1 Pro reported strong performance across reasoning, coding, agentic tool use, and long-context tasks. Anthropic's 2026 releases likewise show major improvements in agentic coding and knowledge work. METR's ongoing measurements also show rapidly increasing task-completion time horizons for frontier AI agents.
 
-LLMs can produce sophisticated-looking solutions while still failing on relatively simple changes in problem structure.
+The more useful question is therefore:
 
-This creates an important distinction between **performance on familiar task distributions** and **robust reasoning ability**. A model may perform extremely well on common benchmark patterns but become less reliable when a problem requires unusual composition, unfamiliar constraints, or systematic adaptation.
+> **Which limitations have been reduced by frontier-model progress, which have changed form, and which remain difficult?**
 
-This does not mean that LLMs cannot reason. Rather, reasoning ability appears to be highly dependent on task structure, prompting, training, and available tools.
+## 1. Raw Capability Has Improved Dramatically
 
-## 2. Knowledge Is Not the Same as Reliable Access to Knowledge
+It would be misleading to describe current frontier LLMs simply as systems that "cannot reason."
 
-An LLM's parameters contain statistical representations learned during training, but this does not function like a conventional database.
+Models now solve many problems that were substantially more difficult for earlier generations, particularly when they are allowed additional inference-time computation, tools, retrieval, or structured workflows.
 
-Three problems follow:
+Examples from 2026 frontier evaluations include:
 
-* Knowledge can become outdated.
-* The model may not reliably retrieve a fact it has encountered.
-* The model can generate a plausible answer even when it lacks sufficient evidence.
+- advanced mathematical and scientific reasoning
+- software engineering
+- multimodal reasoning
+- long-context analysis
+- browser-based research
+- computer use
+- multi-step tool execution
+- professional knowledge-work tasks
 
-Retrieval systems, tools, and external sources can partially address these problems, but they introduce their own failure modes.
+METR's task-completion-time-horizon measurements provide another perspective. Rather than measuring performance on one benchmark, METR estimates how long a human expert would need to complete tasks that an AI agent can successfully complete with a given probability. The measured frontier has increased substantially over time.
 
-## 3. Generalization Remains a Major Challenge
+### Synthesis
 
-Strong benchmark performance does not automatically imply strong performance in every real-world setting.
+The evidence supports a major update to the older narrative:
 
-Real tasks contain distribution shifts, ambiguous instructions, incomplete information, unusual edge cases, and changing environments. Consequently, evaluating a model only on a fixed benchmark can provide an incomplete picture of its reliability.
+> **Frontier LLMs are no longer well described as systems with uniformly weak reasoning or short-horizon capabilities.**
 
-This is one reason evaluation methodology matters as much as raw benchmark scores.
+Their capabilities have expanded rapidly.
 
-## 4. Fluency Can Mask Uncertainty
+However, increased capability does not eliminate reliability problems.
 
-LLMs are optimized to generate useful language, not to provide a calibrated indication of whether every statement is true.
+---
 
-As a result, a response can be:
+## 2. Generalization Remains More Important Than Peak Benchmark Performance
 
-> fluent + coherent + confident + wrong
+A model can perform extremely well on a benchmark without demonstrating equivalent performance across every possible task from the same broad domain.
 
-This is particularly dangerous because humans tend to use surface quality as a proxy for credibility.
+There are at least three different questions:
 
-## 5. Tools Change the Failure Profile Rather Than Eliminating It
+1. **Can the model solve these benchmark items?**
+2. **Can it solve new items drawn from a similar distribution?**
+3. **Can it robustly solve materially different real-world tasks?**
 
-External tools can give models access to current information, computation, code execution, and retrieval systems.
+These questions should not be treated as interchangeable.
 
-However, tool use creates additional failure points:
+NIST's 2026 work on AI evaluation makes this distinction explicit by separating **benchmark accuracy** from **generalized accuracy**.
 
-* incorrect tool selection
-* incorrect arguments
-* poor interpretation of tool output
-* failure to verify retrieved information
-* manipulation of evaluation environments
-* overreliance on retrieved material
+Benchmark accuracy asks how well a model performs on the particular evaluated items.
 
-The system therefore needs to be evaluated as a **model-plus-tools system**, rather than treating the underlying model as the entire product.
+Generalized accuracy asks how well performance is expected to transfer to a broader population of similar items.
 
-## Synthesis
+This distinction matters because benchmark questions are a sample, not necessarily the entire universe of tasks a system will encounter.
 
-The common thread across these limitations is that **capability and reliability are different properties**.
+### Important qualification
 
-A model can be highly capable while remaining unreliable under specific conditions. Benchmark scores measure performance on particular tasks; they do not automatically establish robustness, calibration, or real-world dependability.
+This does **not** mean benchmark results are useless.
 
-This suggests a practical evaluation principle:
+Benchmarks remain valuable measurements.
 
-> Do not ask only "How well can the model perform?" Ask "Under what conditions does its performance break down?"
+The problem occurs when a benchmark result is interpreted as evidence for a broader claim than the evaluation design can support.
 
-That shift moves evaluation from capability demonstration toward reliability assessment.
+---
+
+## 3. Reasoning Has Become More Capable but Not Necessarily More Predictable
+
+Modern reasoning models can spend additional computation on difficult problems.
+
+This has produced large capability gains.
+
+But "more reasoning" should not be interpreted as:
+
+> more tokens = guaranteed correctness
+
+The additional computation can improve performance while still producing occasional incorrect conclusions.
+
+This creates an important distinction between:
+
+**capability improvement**
+
+and
+
+**reliability improvement**
+
+A model can become better at solving difficult problems while still failing unpredictably on some tasks.
+
+The relevant research question therefore shifts from:
+
+> "Can the model reason?"
+
+toward:
+
+> "How reliably does the model reason across task distributions, and can we predict when it will fail?"
+
+---
+
+## 4. Long-Horizon Agents Introduce a Different Failure Surface
+
+Agentic systems can now perform sequences of actions involving tools, browsers, terminals, code execution, and external environments.
+
+This changes the nature of failure.
+
+A single-turn model can fail by producing an incorrect answer.
+
+An agent can fail because:
+
+- it misunderstands the objective
+- it selects the wrong tool
+- it makes an incorrect intermediate decision
+- it accumulates a small error over many steps
+- it misinterprets tool output
+- it modifies the environment incorrectly
+- it fails to recover from an intermediate mistake
+- it reaches a locally reasonable action that undermines the overall objective
+
+This is one reason METR's task-duration methodology is useful: a model may be highly successful on short tasks while reliability drops as task duration and number of dependencies increase.
+
+The important variable is therefore not merely:
+
+**"How intelligent is the model?"**
+
+but also:
+
+**"How much complexity can the system reliably manage before errors compound?"**
+
+---
+
+## 5. Knowledge Limitations Have Become More Manageable
+
+The traditional criticism that LLMs have static knowledge has weakened as systems increasingly use:
+
+- web search
+- retrieval
+- code execution
+- external APIs
+- databases
+- computer environments
+
+A model connected to reliable external information can answer questions that would be difficult or impossible to answer from its internal parameters alone.
+
+However, this does not eliminate knowledge-related failure.
+
+The system must still:
+
+1. find the right information
+2. determine whether the source is trustworthy
+3. interpret it correctly
+4. distinguish evidence from inference
+5. use the evidence in the final answer
+
+This moves part of the reliability problem from **model knowledge** to **system design**.
+
+---
+
+## 6. Calibration and Uncertainty Remain Important
+
+A highly capable system can still be dangerous if users cannot tell when it is likely to be wrong.
+
+The key distinction is:
+
+> **Accuracy asks whether an answer is correct. Calibration asks whether the system's confidence is informative about correctness.**
+
+A system that is correct 90% of the time but confidently presents its remaining 10% of errors as certain can still be difficult to use safely.
+
+This becomes particularly important for open-ended questions where there may be no obvious answer verification mechanism.
+
+---
+
+## 7. The Nature of the Limitation Is Changing
+
+The evidence suggests that several older criticisms of LLMs should now be treated as **moving targets**.
+
+| Older criticism | 2026 interpretation |
+|---|---|
+| "LLMs cannot reason." | Too broad; frontier reasoning capability has improved substantially. |
+| "LLMs cannot perform long tasks." | Increasingly false in absolute terms; reliability still degrades with complexity and duration. |
+| "LLMs only know their training data." | Increasingly incomplete because models can use retrieval and tools. |
+| "LLMs hallucinate constantly." | Too crude; factual reliability has improved substantially, but nonzero and context-dependent hallucination remains. |
+| "Benchmarks prove intelligence." | Still unjustified; benchmark validity and generalization remain separate questions. |
+| "Bigger models solve reliability." | Not established; capability and reliability are related but not identical. |
+
+## What the Current Evidence Supports
+
+The strongest synthesis is not that LLMs are fundamentally unreliable.
+
+It is that:
+
+> **Frontier LLM capability has advanced rapidly enough that old blanket descriptions of their limitations are increasingly misleading. The remaining challenge is to characterize reliability conditionally: across task distributions, levels of complexity, tool environments, and uncertainty.**
+
+This is a more useful framing for 2026.
+
+The relevant question is no longer simply:
+
+> "What can't LLMs do?"
+
+It is:
+
+> **"Under what conditions can they do it reliably enough for the decision at hand?"**
+
+## What the Evidence Does Not Establish
+
+The current evidence does not justify concluding that frontier benchmark performance equals general intelligence, nor that high performance on increasingly difficult tasks guarantees robust real-world reliability.
+
+Likewise, the existence of successful long-horizon agents does not establish that arbitrary long-horizon work can be delegated without supervision.
+
+These are empirical questions requiring continued evaluation.
 
 ## Sources
 
-1. Kostikova et al. (2025), *LLLMs: A Data-Driven Survey of Evolving Research on Limitations of Large Language Models*.
-2. NIST, *AI Test, Evaluation, Validation and Verification (TEVV)*.
-3. NIST, *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*.
+1. NIST, *Expanding the AI Evaluation Toolbox with Statistical Models*, 2026.
+2. NIST, *AI 800-2 Initial Public Draft*, 2026.
+3. Google DeepMind, *Gemini 3.1 Pro Model Card*, 2026.
+4. OpenAI, *GPT-5.6*, 2026.
+5. Anthropic, *Claude Sonnet 5 System Card*, 2026.
+6. Anthropic, *Claude Opus 4.8*, 2026.
+7. METR, *Task-Completion Time Horizons of Frontier AI Models*, updated May 2026.

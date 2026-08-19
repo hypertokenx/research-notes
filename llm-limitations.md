@@ -12,11 +12,11 @@ The useful question in 2026 is:
 
 Earlier LLM research established several important weaknesses:
 
-- performance could be brittle outside familiar task distributions;
-- factual errors and hallucinations were common;
-- models struggled with some forms of multi-step reasoning;
-- long sequences of dependent actions were difficult;
-- static model knowledge limited access to current or private information.
+- performance could be brittle outside familiar task distributions
+- factual errors and hallucinations were common
+- models struggled with some forms of multi-step reasoning
+- long sequences of dependent actions were difficult
+- static model knowledge limited access to current or private information
 
 These findings remain useful as historical baselines, but they should not be treated as permanent properties of all LLMs.
 
@@ -58,12 +58,12 @@ Agentic systems can now execute longer sequences involving tools, browsers, term
 
 But long-horizon work introduces additional failure modes:
 
-- incorrect intermediate decisions;
-- tool-selection errors;
-- state-tracking errors;
-- compounding mistakes;
-- failure to recover from an earlier error;
-- locally sensible actions that undermine the overall objective.
+- incorrect intermediate decisions
+- tool-selection errors
+- state-tracking errors
+- compounding mistakes
+- failure to recover from an earlier error
+- locally sensible actions that undermine the overall objective
 
 METR's task-horizon methodology is useful because it measures this dimension directly rather than reducing everything to single-turn accuracy.
 
